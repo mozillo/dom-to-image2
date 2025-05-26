@@ -163,6 +163,8 @@
             var canvas = document.createElement('canvas');
             canvas.width = options.width || util.width(domNode);
             canvas.height = options.height || util.height(domNode);
+
+            let context = canvas.getContext('2d');
             const ratio = window.devicePixelRatio || 1;
             canvas.width *= ratio;
             canvas.height *= ratio;
