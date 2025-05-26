@@ -163,7 +163,11 @@
             var canvas = document.createElement('canvas');
             canvas.width = options.width || util.width(domNode);
             canvas.height = options.height || util.height(domNode);
-
+            const ratio = window.devicePixelRatio || 1;
+            canvas.width *= ratio;
+            canvas.height *= ratio;
+            context.scale(ratio, ratio);
+            context.drawImage(image, 0, 0);
             if (options.bgcolor) {
                 var ctx = canvas.getContext('2d');
                 ctx.fillStyle = options.bgcolor;
